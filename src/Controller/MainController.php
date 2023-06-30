@@ -10,17 +10,17 @@ class MainController extends AbstractController
 {
 //    NOM DE LA ROUTE
 
-    #[Route('/acceuil', name: 'app_acceuil')]
-    public function index(): Response
+    #[Route('/l_ombre_de_toi/base', name: 'app_base')]
+    public function base(): Response
     {
 
 //        RETOURNE LA VUE
 
-        return $this->render('main/index.html.twig');
+        return $this->render('main/base.html.twig');
 
     }
 
-    #[Route('/tpb', name: 'app_tpb')]
+    #[Route('/l_ombre_de_toi/tpb', name: 'app_tpb')]
     public function tpb(): Response
     {
 
@@ -28,7 +28,7 @@ class MainController extends AbstractController
 
     }
 
-    #[Route('/ressources', name: 'app_ressources')]
+    #[Route('/l_ombre_de_toi/ressources', name: 'app_ressources')]
     public function ressources(): Response
     {
 
@@ -36,7 +36,7 @@ class MainController extends AbstractController
 
     }
 
-    #[Route('/discussion', name: 'app_discussion')]
+    #[Route('/l_ombre_de_toi/discussion', name: 'app_discussion')]
     public function discussion(): Response
     {
 
@@ -44,7 +44,7 @@ class MainController extends AbstractController
 
     }
 
-    #[Route('/profil', name: 'app_profil')]
+    #[Route('/l_ombre_de_toi/profil', name: 'app_profil')]
     public function profil(): Response
     {
 
