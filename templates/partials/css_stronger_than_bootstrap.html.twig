@@ -1,14 +1,19 @@
 <style>
 
+    body{
+        background-color: #DBDBDB;
+    }
+
     @font-face {
-        font-family: 'Ysabeau';
-        src: url('../../fonts/YsabeauOffice-VariableFont_wght.ttf');
+        font-family: 'Ysabeau', 'Dancing Script';
+        src: url('../../fonts/YsabeauOffice-VariableFont_wght.ttf'),
+        ('../../fonts/DancingScript-VariableFont_wght.ttf');
     }
 
 /**/
 /* CSS DE LA NAVBAR */
 /**/
-    
+
     .navbar{
         background-color: #243B34;
     }
@@ -39,4 +44,50 @@
     i.fa-solid{
         padding-right: 10px;
     }
+
+
+/**/
+/* CSS DU FOOTER */
+/**/
+
+    .footer {
+        position:absolute;
+        bottom:0;  /* on le colle en bas */
+        left:0;
+        width:100%;
+        height:300px; /* Hauteur du pied de page */
+        background-color: #243B34;
+        font-family: "Dancing Script";
+        font-weight: bold;
+        color: #DBDBDB;
+        text-shadow: #92ec8c 1px 0 4px;
+    }
+
+    .footer h2 {
+        text-align: center;
+        font-size: 52px;
+        margin-top: 20px;
+    }
+
+    .footer h3 {
+        padding-top: 20px;
+    }
+
+    .two-parts{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .left-part, .right-part{
+        display: block;
+    }
+
+    .footer img{
+        max-width: 40%;
+        max-height: 40%;
+        margin: auto;
+        display: block;
+        display: flex;
+    }
+
 </style>
