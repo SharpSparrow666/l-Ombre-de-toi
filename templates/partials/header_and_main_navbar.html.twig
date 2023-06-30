@@ -1,38 +1,47 @@
 <header>
-    <div class="container-fluid">
-        <img src="" alt="Logo et titre du site">
-    </div>
-    <nav class="navbar navbar-expand-lg main-navbar">
-        <div class="container-fluid p-3">
-
-            <ul class="nav nav-underline">
-                <li class="nav-item">
-                    <a class="nav-link fs-5 text-uppercase" aria-current="page" href="#"><i class="fa-solid fa-house fa-xs" style="color: #e6e6e6;"></i>Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fs-5 text-uppercase" href="#"><i class="fa-solid fa-brain fa-xs" style="color: #e0e0e1;"></i>Le TPB</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fs-5 text-uppercase" href="#"><i class="fa-solid fa-newspaper fa-xs" style="color: #eaeaeb;"></i>Ressources</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fs-5 text-uppercase"><i class="fa-solid fa-feather fa-xs" style="color: #e6e6e6;"></i>Discussion</a>
-                </li>
-            </ul>
-
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
-                            {# Lien de la page mon profil #}
-                            <a class="nav-link text-light text-uppercase p-3" href="#"><i class="fas fa-users-cog me-1"></i>Profil</a>
-
-                            {# Lien de la page de déconnexion #}
-                            <a class="nav-link text-light text-uppercase p-3" href="#"><i class="fas fa-sign-out-alt me-1"></i>Connexion</a>
-
-                            {# Lien de la page d'inscription' #}
-                            <a class="nav-link text-light text-uppercase p-3 right" href="#"><i class="fa-solid fa-user-plus me-1"></i>Inscription</a>
-
-                        </div>
-            </ul>
+    <div class="row">
+        <div class="ms-auto mb-2 mb-lg-0">
+        <div class="container-fluid">
+            <img src="" alt="Logo et titre du site">
         </div>
-    </nav>
+            <nav class="navbar navbar-expand-lg main-navbar">
+                <div class="container-fluid p-3">
+
+                    <ul class="nav nav-underline">
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 text-uppercase" aria-current="page" href="#"><i class="fa-solid fa-house fa-xs" style="color: #e6e6e6;"></i>Accueil</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 text-uppercase" href="#"><i class="fa-solid fa-brain fa-xs" style="color: #e0e0e1;"></i>Le TPB</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 text-uppercase" href="#"><i class="fa-solid fa-newspaper fa-xs" style="color: #eaeaeb;"></i>Ressources</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 text-uppercase"><i class="fa-solid fa-feather fa-xs" style="color: #e6e6e6;"></i>Discussion</a>
+                        </li>
+                    </ul>
+
+        {#     PAQUET NAV DE DROITE       #}
+
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item dropdown"></li>
+
+                                    {# Lien de la page mon profil #}
+                                    <a class="nav-link text-uppercase p-3" href="#"><i class="fas fa-users-cog me-1"></i>Profil</a>
+
+                                    {# Lien de la page de déconnexion #}
+                                    <a class="nav-link text-uppercase p-3" href="#"><i class="fas fa-sign-out-alt me-1"></i>Connexion</a>
+
+                                    {# Lien de la page d'inscription' #}
+                                    <a class="nav-link text-uppercase p-3 right" href="#"><i class="fa-solid fa-user-plus me-1"></i>Inscription</a>
+
+                                </div>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
 </header>
