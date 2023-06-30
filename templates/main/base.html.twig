@@ -9,25 +9,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Ysabeau+Office:ital,wght@0,1;0,100;0,200;0,300;1,1;1,100;1,200&family=Ysabeau+SC:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/{{ asset('styles/styles.css') }}">
     {#  Bloc pour permettre aux pages de rajouter individuellement des fichiers CSS additionnels  #}
     {% block css %}{% endblock %}
     <style>
+
+        @font-face {
+            font-family: 'Ysabeau';
+            src: url('../../fonts/YsabeauOffice-VariableFont_wght.ttf');
+        }
+
         .navbar{
             background-color: #243B34;
         }
 
-        .nav-link{
-            color: #DBDBDB;
-            padding-left: 50px;
-            hover:
+        a.nav-link.text-light.right{
+            margin-right: 200px;
+            padding-left: 20px;
         }
 
-        .nav-link:hover{
+        .nav-link, a.text-light{
+            font-family: Ysabeau;
+            color: #DBDBDB;
+            padding-left: 50px;
+        }
+
+        .nav-link:hover, a.text-light:hover{
             color: #DBDBDB;
             text-shadow: #0a3622;
-            text-decoration: underline;
+            -ms-transform: scale(1.18); /* IE 9 */
+            -webkit-transform: scale(1.18); /* Safari 3-8 */
+            transform: scale(1.18);
         }
     </style>
 </head>
