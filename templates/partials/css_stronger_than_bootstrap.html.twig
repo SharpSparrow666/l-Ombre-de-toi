@@ -2,7 +2,7 @@
 
     body{
         background-color: #DBDBDB;
-        box-shadow: 1px 1px 1px darkslategray;
+        width: 100%;
     }
 
     @font-face {
@@ -30,6 +30,7 @@
     .navbar{
         background-color: #243B34;
         box-shadow: 5px 5px 5px black;
+        width: 100%;
     }
 
     a.nav-link.text-light.right{
@@ -65,7 +66,7 @@
 
     /*  CODAGE SECTION  */
 
-        .explication-section, .tpb-section{
+        .explication-section, .tpb-section, .caracteristiques-section, .sans-nom-section{
             background-color: #157251;
             padding: 10px;
             margin-top: 50px;
@@ -128,11 +129,11 @@
         }
 
     .fleur-accueil-2{
-        max-width: 17%;
-        max-height: 17%;
+        max-width: 15%;
+        max-height: 15%;
         position: absolute;
-        margin-top: 160px;
-        margin-left: 960px;
+        margin-top: 178px;
+        margin-left: 985px;
     }
 
     /*  CODAGE PHOTO ACCUEIL  */
@@ -148,15 +149,77 @@
             box-shadow: 5px 5px 5px black;
         }
 
+
+/**/
+/* CSS DE LA PAGE TPB */
+/**/
+
+    /*  PARAGRAPHE CARACTÉRISTIQUES  */
+
+    video{
+        max-width: 650px;
+        margin-left: 33%;
+        padding: 40px;
+    }
+
+    section p{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .caracteristiques{
+        padding: 50px;
+        margin-left: 150px;
+        text-align: justify;
+        font-size: 18px;
+        font-weight: bold;
+        max-height: 350px;
+        overflow: hidden;
+    }
+
+    .fleur-tpb{
+        max-width: 20%;
+        max-height: 20%;
+        position: absolute;
+        margin-top: 202px;
+        margin-left: 5px;
+    }
+
+    /*  SLIDE PLAYLIST YOUTUBE  */
+
+
+
+    /*  PARAGRAPHE SANS NOM  */
+
+    .sans-nom{
+        padding: 50px;
+        margin-left: 150px;
+        text-align: justify;
+        font-size: 18px;
+        font-weight: bold;
+        max-height: 350px;
+        overflow: hidden;
+    }
+
+    .fleur-tpb-1{
+        max-width: 20%;
+        max-height: 20%;
+        position: absolute;
+        margin-top: 206px;
+        margin-left: 5px;
+    }
+
 /**/
 /* CSS DU FOOTER */
 /**/
 
     .footer.main-footer {
         position: absolute;
-        border-bottom: 0px;  /* on le colle en bas */
+        width: 100%;
+        margin-right: -25px;
+        margin-bottom: 0px;  /* on le colle en bas */
         left: 0px;
-        right: 0px;
+
         margin-top: 20px;
         height:370px; /* Hauteur du pied de page */
         background-color: #243B34;

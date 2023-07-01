@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {#  Affichage titre venant de la vue (bloc title) + nom du site  #}
-    <title>Accueil</title>
+    <title>TPB</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Ysabeau+Office:ital,wght@0,1;0,100;0,200;0,300;1,1;1,100;1,200&family=Ysabeau+SC:wght@100&display=swap" rel="stylesheet">
@@ -15,10 +15,67 @@
     {#  CSS additionnel  #}
     {% include 'partials/css_stronger_than_bootstrap.html.twig' %}
 </head>
-
 {# Inclusion de la bannière et du menu principal du site #}
 {% include 'partials/header_and_main_navbar.html.twig' %}
 <body>
+    <section>
+        <video controls loop muted>
+            <source src="../../videos/tpb-video.mp4" type="video/mp4">
+            <p>vidéo disponible sur google chrome, présentant les caractéristiques du TPB</p>
+        </video>
+        <p>Vidéo illustrant les caractéristiques du TPB</p>
+    </section>
+    <section>
+        <article>
+            <div class="row">
+                <div class="ms-auto mb-2 mb-lg-0">
+                    <div class="container-fluid">
+                        <div class="caracteristiques-section">
+                            <div>
+                                <img class="fleur-tpb" src="{{ asset('../../images/fleur-tpb.png') }}" alt="">
+                            </div>
+
+                            <div class="two-parts">
+
+                                <div class="left-part">
+                                    <p class="caracteristiques"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti dolore doloremque esse expedita itaque modi molestias nam non nostrum obcaecati, placeat quasi, reprehenderit tempora temporibus? Aspernatur deleniti quam quia?</span><span>Ad aut autem dolore doloremque, ex ipsum maxime modi nesciunt nihil, nisi nobis quam quidem sed ullam unde ut, voluptate voluptates. Aliquid cumque eos error excepturi exercitationem nostrum tenetur, voluptate.</span><span>Excepturi laborum minima neque non voluptatum? Ad aperiam autem corporis culpa dolor exercitationem fugit id inventore molestias placeat, quae quam quas unde velit voluptate voluptates voluptatibus. Alias quos saepe tenetur.</span>
+                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit hic pariatur quos voluptate voluptates. Aliquam amet doloribus iste maiores pariatur quam sint suscipit? Architecto consequuntur dolorem incidunt qui reiciendis, sunt?</span><span>Fugiat iusto minus nisi? Architecto at fugiat in ipsam nulla perferendis quae unde voluptatum? Accusantium aut corporis facere laborum reprehenderit sit, suscipit tenetur voluptatem? Dolore neque nulla quae quasi tempora.</span><span>Amet dicta eius error eum facilis incidunt iste laboriosam libero mollitia necessitatibus nulla optio placeat quam rerum sit vel veniam, vitae! Amet asperiores aspernatur laborum maiores officiis omnis sunt totam.</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section>
+
+        <p>Caroussel de vidéos YT</p>
+
+    </section>
+    <section>
+        <article>
+            <div class="row">
+                <div class="ms-auto mb-2 mb-lg-0">
+                    <div class="container-fluid">
+                        <div class="sans-nom-section">
+                            <div>
+                                <img class="fleur-tpb-1" src="{{ asset('../../images/fleur-tpb-1.png') }}" alt="">
+                            </div>
+
+                            <div class="two-parts">
+
+                                <div class="left-part">
+                                    <p class="sans-nom"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti dolore doloremque esse expedita itaque modi molestias nam non nostrum obcaecati, placeat quasi, reprehenderit tempora temporibus? Aspernatur deleniti quam quia?</span><span>Ad aut autem dolore doloremque, ex ipsum maxime modi nesciunt nihil, nisi nobis quam quidem sed ullam unde ut, voluptate voluptates. Aliquid cumque eos error excepturi exercitationem nostrum tenetur, voluptate.</span><span>Excepturi laborum minima neque non voluptatum? Ad aperiam autem corporis culpa dolor exercitationem fugit id inventore molestias placeat, quae quam quas unde velit voluptate voluptates voluptatibus. Alias quos saepe tenetur.</span>
+                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit hic pariatur quos voluptate voluptates. Aliquam amet doloribus iste maiores pariatur quam sint suscipit? Architecto consequuntur dolorem incidunt qui reiciendis, sunt?</span><span>Fugiat iusto minus nisi? Architecto at fugiat in ipsam nulla perferendis quae unde voluptatum? Accusantium aut corporis facere laborum reprehenderit sit, suscipit tenetur voluptatem? Dolore neque nulla quae quasi tempora.</span><span>Amet dicta eius error eum facilis incidunt iste laboriosam libero mollitia necessitatibus nulla optio placeat quam rerum sit vel veniam, vitae! Amet asperiores aspernatur laborum maiores officiis omnis sunt totam.</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
 
 
 
