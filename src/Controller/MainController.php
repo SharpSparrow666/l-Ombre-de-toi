@@ -10,13 +10,13 @@ class MainController extends AbstractController
 {
 //    NOM DE LA ROUTE
 
-    #[Route('/l_ombre_de_toi/base', name: 'app_base')]
+    #[Route('/l_ombre_de_toi/accueil', name: 'app_accueil')]
     public function base(): Response
     {
 
 //        RETOURNE LA VUE
 
-        return $this->render('main/base.html.twig');
+        return $this->render('main/accueil.html.twig');
 
     }
 

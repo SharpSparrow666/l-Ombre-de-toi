@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {#  Affichage titre venant de la vue (bloc title) + nom du site  #}
+    <title>Accueil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Ysabeau+Office:ital,wght@0,1;0,100;0,200;0,300;1,1;1,100;1,200&family=Ysabeau+SC:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/{{ asset('styles/styles.css') }}">
+    {#  CSS additionnel  #}
+    {% include 'partials/css_stronger_than_bootstrap.html.twig' %}
+</head>
+
+    {# Inclusion de la bannière et du menu principal du site #}
+    {% include 'partials/header_and_main_navbar.html.twig' %}
+<body>
+
+    {#  Section explicative  #}
+    <section>
+
+        <div class="row">
+            <div class="ms-auto mb-2 mb-lg-0">
+                <div class="container-fluid">
+                    <div class="explication-section">
+
+                        <h2 class="section-what">_ C'est quoi ?</h2>
+
+                        <div class="two-parts">
+
+                            <div class="left-part">
+                                <p class="what-is-it"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti dolore doloremque esse expedita itaque modi molestias nam non nostrum obcaecati, placeat quasi, reprehenderit tempora temporibus? Aspernatur deleniti quam quia?</span><span>Ad aut autem dolore doloremque, ex ipsum maxime modi nesciunt nihil, nisi nobis quam quidem sed ullam unde ut, voluptate voluptates. Aliquid cumque eos error excepturi exercitationem nostrum tenetur, voluptate.</span><span>Excepturi laborum minima neque non voluptatum? Ad aperiam autem corporis culpa dolor exercitationem fugit id inventore molestias placeat, quae quam quas unde velit voluptate voluptates voluptatibus. Alias quos saepe tenetur.</span></p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    {#  Section TPB  #}
+    <section>
+
+        <div class="row">
+            <div class="ms-auto mb-2 mb-lg-0">
+                <div class="container-fluid">
+                    <div class="tpb-section">
+
+                        <h2 class="section-tpb">_ TPB ?</h2>
+
+                        <div class="two-parts">
+
+                            <div class="left-part">
+                                <p class="tpb"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti dolore doloremque esse expedita itaque modi molestias nam non nostrum obcaecati, placeat quasi, reprehenderit tempora temporibus? Aspernatur deleniti quam quia?</span><span>Ad aut autem dolore doloremque, ex ipsum maxime modi nesciunt nihil, nisi nobis quam quidem sed ullam unde ut, voluptate voluptates. Aliquid cumque eos error excepturi exercitationem nostrum tenetur, voluptate.</span><span>Excepturi laborum minima neque non voluptatum? Ad aperiam autem corporis culpa dolor exercitationem fugit id inventore molestias placeat, quae quam quas unde velit voluptate voluptates voluptatibus. Alias quos saepe tenetur.</span>></p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+<footer>
+    {# Inclusion du footer du site #}
+    {% include 'partials/footer.html.twig' %}
+</footer>
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+{% block js %}{% endblock %}
+</body>
+</html>
