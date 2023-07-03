@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {#  Affichage titre venant de la vue (bloc title) + nom du site  #}
-    <title>Accueil</title>
+    <title>Ressources</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Ysabeau+Office:ital,wght@0,1;0,100;0,200;0,300;1,1;1,100;1,200&family=Ysabeau+SC:wght@100&display=swap" rel="stylesheet">
@@ -19,7 +19,69 @@
 {# Inclusion de la bannière et du menu principal du site #}
 {% include 'partials/header_and_main_navbar.html.twig' %}
 <body>
+    <section>
+        <div class="container-fluid">
+            <div class="photo-ressources"></div>
+        </div>
+    </section>
+    <section>
+        <div class="row">
+            <div class="ms-auto mb-2 mb-lg-0">
+                <div class="container-fluid">
+                    <div class="ressources-section">
 
+                        <h2 class="section-ressources">_ De l'aide, du soutien, des solutions ?</h2>
+
+                                <p class="what-is-it"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti dolore doloremque esse expedita itaque modi molestias nam non nostrum obcaecati, placeat quasi, reprehenderit tempora temporibus? Aspernatur deleniti quam quia?</span><span>Ad aut autem dolore doloremque, ex ipsum maxime modi nesciunt nihil, nisi nobis quam quidem sed ullam unde ut, voluptate voluptates. Aliquid cumque eos error excepturi exercitationem nostrum tenetur, voluptate.</span><span>Excepturi laborum minima neque non voluptatum? Ad aperiam autem corporis culpa dolor exercitationem fugit id inventore molestias placeat, quae quam quas unde velit voluptate voluptates voluptatibus. Alias quos saepe tenetur.</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="row">
+            <div class="ms-auto mb-2 mb-lg-0">
+                <div class="container-fluid">
+                    <div class="playlist-section">
+
+                        <h2 class="section-playlist">Pour plus d'informations,</h2>
+
+                        <div>
+                            <img class="fleur-ressources" src="{{ asset('../../images/fleur-ressources.png') }}" alt="">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="row">
+            <div class="ms-auto mb-2 mb-lg-0">
+                <div class="container-fluid">
+                        <p>
+                            <ul class="links-and-articles">
+                            <li>Https://</li>
+                            <li>Https://</li>
+                            <li>Https://</li>
+                            <li>Https://</li>
+                            <li>Https://</li>
+                        </ul>
+                        </p>
+
+                        <p>
+                        <ul class="links-and-articles">
+                            <li>Article 1</li>
+                            <li>Article 2</li>
+                            <li>Article 3</li>
+                            <li>Article 4</li>
+                            <li>Article 5</li>
+                        </ul>
+                        </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 <footer>
