@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Form\RegistrationFormType;
+use http\Env\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -49,6 +52,23 @@ class MainController extends AbstractController
     {
 
         return $this->render('main/profil.html.twig');
+
+    }
+
+    #[Route('/l_ombre_de_toi/register', name: 'app_register')]
+    public function register(Request $request): Response
+    {
+
+        $newUser = new User();
+
+        // Création d'un nouveau formulaire à partir de notre formulaire CreateArticleFormType et de notre nouvel article encore vide
+        $form = $this->createForm(RegistrationFormType::class, $newUser);
+
+        $form->handleRequest($request);
+
+        return $this->render('registration/register.html.twig', [
+        'form'=> $form->createView()
+        ]);
 
     }
 

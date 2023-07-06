@@ -32,11 +32,11 @@
                                     {# Lien de la page mon profil #}
                                     <a class="nav-link text-uppercase p-3" href="href="{{ path('app_profil') }}"><i class="fas fa-users-cog me-1"></i>Profil</a>
 
-                                    {# Lien de la page de déconnexion #}
-                                    <a class="nav-link text-uppercase p-3" href="#"><i class="fas fa-sign-out-alt me-1"></i>Connexion</a>
+                                    {# Lien de la page de connexion / déconnexion #}
+                                    <a class="nav-link text-uppercase p-3" href="{{ path('app_login') }}"><i class="fas fa-sign-out-alt me-1"></i>Connexion</a>
 
                                     {# Lien de la page d'inscription' #}
-                                    <a class="nav-link text-uppercase p-3 right" href="#""><i class="fa-solid fa-user-plus me-1"></i>Inscription</a>
+                                    <a class="nav-link text-uppercase p-3 right" href="{{ path('app_register') }}""><i class="fa-solid fa-user-plus me-1"></i>Inscription</a>
 
                                 </div>
                     </ul>
