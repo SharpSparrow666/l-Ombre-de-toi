@@ -13,18 +13,40 @@
         {# Titre h1 de la page #}
         <div class="row">
             <div class="col-12">
-                <h1 class="text-center my-5">Connexion</h1>
+                <h1 class="text-center my-5 connexion-title">Connexion</h1>
             </div>
         </div>
 
         {# Formulaire de connexion #}
         <div class="row">
 
-            <div class="col-12 col-md-4 mx-auto">
+            <div class="col-12 col-md-4 mx-auto section-login-form">
 
                 <form action="{{ path('app_login') }}" method="POST">
 
-                    <p>blablabla</p>
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    {# Champ pseudo #}
+                    <div class="mb-3">
+                        <label class="form-label" for="inputEmail">Pseudo</label>
+                        <input class="button w-100 border border-success border-3" value="{{ last_username }}" type="text" name="pseudo" id="inputPseudo" class="form-control" required>
+                    </div>
+
+                    {# Champ mot de passe #}
+                    <div class="mb-3">
+                        <label class="form-label" for="inputPassword">Mot de passe</label>
+                        <input class="button w-100 border border-success border-3" type="password" name="password" id="inputPassword" class="form-control" required>
+                    </div>
+
+                    {# Champ invisible token anti attaque CSRF #}
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                    {# Bouton de validation #}
+                    <div class="mb-3">
+                        <input type="submit" class="btn btn-success w-100 fw-bold mt-5" value="Connexion">
+                    </div>
 
 
 

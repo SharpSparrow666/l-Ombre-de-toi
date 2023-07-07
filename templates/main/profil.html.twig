@@ -1,32 +1,71 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {#  Affichage titre venant de la vue (bloc title) + nom du site  #}
-    <title>Accueil</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Ysabeau+Office:ital,wght@0,1;0,100;0,200;0,300;1,1;1,100;1,200&family=Ysabeau+SC:wght@100&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="public/{{ asset('styles/styles.css') }}">
-    {#  CSS additionnel  #}
-    {% include 'partials/css_stronger_than_bootstrap.html.twig' %}
-</head>
-
-{# Inclusion de la bannière et du menu principal du site #}
-{% include 'partials/header_and_main_navbar.html.twig' %}
-<body>
 
 
+{% extends 'base.html.twig' %}
 
-<footer>
-    {# Inclusion du footer du site #}
-    {% include 'partials/footer.html.twig' %}
-</footer>
-<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-{% block js %}{% endblock %}
-</body>
-</html>
+{% block title %}Créer un compte{% endblock %}
+
+{% block body %}
+    <div>
+        <h1 class="create-account">Profil</h1>
+    </div>
+    <section>
+        <div class="row">
+            <div class="ms-auto mb-2 mb-lg-0">
+                 <div class="container-fluid">
+                      <div class="profil-section">
+
+                          <div class="row">
+                              <div class="col-12 col-md-10 mx-auto">
+                                  <div class="row">
+
+                                      {# Bloc de gauche #}
+                                      <div class="col-12 col-md-3 bg-black px-2 py-3 text-center">
+
+                                          {# Image de profil #}
+                                          <div class="row">
+                                              <div class="col-10 mx-auto d-flex left-bloc-profil justify-content-center align-items-center">
+
+                                                      <img class="img-thumbnail" src="#" alt="">
+
+                                              </div>
+                                          </div>
+
+                                          {# Lien vers la page permettant de changer de photo de profil #}
+                                          <div class="row">
+                                              <div class="col-12 pt-3">
+                                                  <a href="#" class="text-dark text-decoration-none">Modifier la photo de profil</a>
+                                              </div>
+                                          </div>
+
+                                      </div>
+
+                                      {# Bloc de droite #}
+                                      <div class="col-12 col-md-9 px-2 py-3 right-bloc-profil d-flex justify-content-center align-items-center">
+
+                                          {# Infos du compte #}
+                                          <ul class="list-group col-12 col-md-8 p-0 w-100">
+                                              <li class="list-group-item bg-black text-dark">Pseudo : <span class="text-info text-light">###</span></li>
+                                              <li class="list-group-item bg-black text-dark">Age : <span class="text-info text-light">###</span></li>
+                                              <li class="list-group-item bg-black text-dark">Date d'inscription : <span class="text-info text-light">###</span></li>
+                                              <li class="list-group-item bg-black text-dark">
+                                                  Rôle :
+                                                  <span class="text-info text-light">{{  is_granted('ROLE_ADMIN') ? 'Administrateur' : 'Utilisateur' }}</span>
+                                              </li>
+                                          </ul>
+
+                                      </div>
+
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div>
+                              <img class="fleur-profil" src="{{ asset('../../images/pleu-profil2.png') }}" alt="">
+                          </div>
+
+                       </div>
+                 </div>
+            </div>
+    </div>
+</section>
+{%  endblock %}

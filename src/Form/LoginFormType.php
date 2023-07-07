@@ -1,0 +1,68 @@
+<?php
+
+namespace App\Form;
+
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
+
+class LoginFormType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        $builder
+            ->add('pseudo', TextType::class, [
+                'label' => 'Pseudo :',
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Merci de renseigner un pseudonyme',
+                    ]),
+                    new Length([
+                        'min' => 2,
+                        'max' => 40,
+                        'minMessage' => 'Votre pseudonyme doit contenir au moins {{ limit }} caractères',
+                        'maxMessage' => 'Votre pseudonyme doit contenir au maximum {{ limit }} caractères',
+                    ]),
+                ],
+            ])
+            ->add('password', PasswordType::class, [
+                // instead of being set onto the object directly,
+                // this is read and encoded in the controller
+                'type' => PasswordType::class,
+                'invalid_message' => 'Le mot de passe ne correspond pas à sa confirmation',
+                'label' => 'Mot de passe :',
+                'mapped' => false,
+                'attr' => ['autocomplete' => 'new-password'],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Merci de renseigner un MDP',
+                    ]),
+                    new Length([
+                        'min' => 6,
+                        'minMessage' => 'Votre MDP doit contenir au moins {{ limit }} caractères',
+                        // max length allowed by Symfony for security reasons
+                        'max' => 4096,
+                    ]),
+                    new Regex([
+                        'pattern' => '/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[ !"#\$%&\'()*+,\-.\/:;<=>?@[\\\\\]\^_`{\|}~]).{8,4096}$/u',
+                        'message' => 'Votre mot de passe doit contenir obligatoirement une minuscule, une majuscule, un chiffre et un caractère spécial',
+                    ]),
+                ],
+            ])
+            ->add('save', SubmitType::class, [
+                'label' => 'Créer mon compte',
+                'attr' => [
+                    'class' => 'btn btn-outline-warning w-100',
+                ],
+            ]);
+    }
+}
