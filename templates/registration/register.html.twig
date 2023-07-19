@@ -3,17 +3,35 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <h1 class="register-title">Créer un compte</h1>
+
+<section class="section-register-form">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-4 mx-auto ">
 
     {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+        {{ form_row(registrationForm.pseudo, {
+            label: 'Pseudo :'
         }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
+        {{ form_row(registrationForm.age, {
+            label: 'Age :'
+        }) }}
+        {{ form_row(registrationForm.email, {
+            label: 'Email :'
+        }) }}
+        {{ form_row(registrationForm.avatar, {
+            label: 'Avatar :'
+        }) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Mot de passe :'
+        }) }}
+        <button type="submit" class="btn btn-success w-100 p-2 mt-4 submit">Créer un compte</button>
     {{ form_end(registrationForm) }}
+                </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
