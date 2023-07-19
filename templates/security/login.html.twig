@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
+
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -14,15 +15,34 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    <h1 class="sign-in-title">Connexion</h1>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+    <section class="section-register-form">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-4 mx-auto ">
+                    <div class="p-2">
+                        <label for="inputPseudo" class="p-2">Pseudo</label>
+                        <input type="text" name="pseudo" id="inputPseudo" class="form-control" autocomplete="pseudo" required autofocus>
+                    </div>
+                    <div class="p-2">
+                        <label for="inputEmail" class="p-2">Email</label>
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required>
+                    </div>
+                    <div class="p-2">
+                        <label for="inputPassword" class="p-2">Mot de passe</label>
+                        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                    </div>
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}">
+
+                    <button class="btn btn-success w-100 p-2 mt-4 submit" type="submit">
+                        Connexion
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -35,8 +55,6 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
+
 </form>
 {% endblock %}
