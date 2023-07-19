@@ -19,7 +19,12 @@
 {# Inclusion de la bannière et du menu principal du site #}
 {% include 'partials/header_and_main_navbar.html.twig' %}
 <body>
+
+{# Inclusion de l'affichage des messages flashes de type "success" et "error" #}
+{% include 'partials/_flashes.html.twig' %}
+
 {% block body %}{% endblock %}
+
 
 
 

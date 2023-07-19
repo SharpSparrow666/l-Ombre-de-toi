@@ -1,61 +1,42 @@
-{# Utilisation du squelette "base.html.twig" #}
-{% extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
 
-{# Définition du titre de la page #}
-{% block title %}Connexion{% endblock %}
+{% block title %}Log in!{% endblock %}
 
-{# Remplissage du body de la page #}
 {% block body %}
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
 
-    {# Grille Bootstrap #}
-    <div class="container-fluid">
-
-        {# Titre h1 de la page #}
-        <div class="row">
-            <div class="col-12">
-                <h1 class="text-center my-5 connexion-title">Connexion</h1>
-            </div>
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
+    {% endif %}
 
-        {# Formulaire de connexion #}
-        <div class="row">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="inputEmail">Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+    <label for="inputPassword">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
-            <div class="col-12 col-md-4 mx-auto section-login-form">
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
 
-                <form action="{{ path('app_login') }}" method="POST">
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
 
-                    {% if error %}
-                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                    {% endif %}
-
-                    {# Champ pseudo #}
-                    <div class="mb-3">
-                        <label class="form-label" for="inputEmail">Pseudo</label>
-                        <input class="button w-100 border border-success border-3" value="{{ last_username }}" type="text" name="pseudo" id="inputPseudo" class="form-control" required>
-                    </div>
-
-                    {# Champ mot de passe #}
-                    <div class="mb-3">
-                        <label class="form-label" for="inputPassword">Mot de passe</label>
-                        <input class="button w-100 border border-success border-3" type="password" name="password" id="inputPassword" class="form-control" required>
-                    </div>
-
-                    {# Champ invisible token anti attaque CSRF #}
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-                    {# Bouton de validation #}
-                    <div class="mb-3">
-                        <input type="submit" class="btn btn-success w-100 fw-bold mt-5" value="Connexion">
-                    </div>
-
-
-
-                </form>
-
-            </div>
-
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
         </div>
+    #}
 
-    </div>
-
+    <button class="btn btn-lg btn-primary" type="submit">
+        Sign in
+    </button>
+</form>
 {% endblock %}

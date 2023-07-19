@@ -9,12 +9,12 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
-    #[Route(path: '/l_ombre_de_toi/login/', name: 'app_login')]
+    #[Route(path: '/login', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-        if ($this->getUser()) {
-            return $this->redirectToRoute('main_home');
-        }
+         if ($this->getUser()) {
+             return $this->redirectToRoute('app_accueil');
+         }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();

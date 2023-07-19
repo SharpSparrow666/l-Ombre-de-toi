@@ -49,4 +49,12 @@ class MainController extends AbstractController
         return $this->render('main/discussion.html.twig');
 
     }
+
+    #[Route('/l_ombre_de_toi/profil', name: 'app_profil')]
+    public function profil(): Response
+    {
+
+        return $this->render('main/profil.html.twig');
+
+    }
 }
