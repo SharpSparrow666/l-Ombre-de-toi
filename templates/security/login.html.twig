@@ -20,6 +20,10 @@
     <section class="section-register-form">
         <div class="container-fluid">
             <div class="row">
+                <div>
+                    <img class="fleur-connexion" src="{{ asset('../../images/fleur-connexion.png') }}" alt="">
+                </div>
+
                 <div class="col-12 col-md-4 mx-auto ">
                     <div class="p-2">
                         <label for="inputPseudo" class="p-2">Pseudo</label>
@@ -27,7 +31,7 @@
                     </div>
                     <div class="p-2">
                         <label for="inputEmail" class="p-2">Email</label>
-                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required>
+                        <input type="email" name="email" id="inputEmail" class="form-control" autocomplete="email" required>
                     </div>
                     <div class="p-2">
                         <label for="inputPassword" class="p-2">Mot de passe</label>
