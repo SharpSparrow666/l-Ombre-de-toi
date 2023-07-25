@@ -57,4 +57,55 @@ class MainController extends AbstractController
         return $this->render('main/profil.html.twig');
 
     }
+
+    #[Route('/l_ombre_de_toi/mentions-cgu', name: 'app_mentions-cgu')]
+    public function mentions(): Response
+    {
+
+        return $this->render('main/mentions-cgu.html.twig');
+
+    }
+
+    #[Route('/changer-photo-de-profil/', name: 'main_edit_avatar')]
+    #[IsGranted('ROLE_USER')]
+    public function editPhoto(\Symfony\Component\HttpFoundation\Request $request, ManagerRegistry $doctrine, CacheManager $cacheManager): Response
+    {
+
+        $form = $this->createForm(EditPhotoFormType::class);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+
+            $photo = $form->get('avatar')->getData();
+
+            $connectedUser = $this->getUser();
+
+            $photoLocation = $this->getParameter('app.user.avatar.directory');
+
+            $newFileName = 'user' . $connectedUser->getId() . '.' . $photo->guessExtension();
+
+            if($connectedUser->getPhoto() != null && file_exists($photoLocation . $connectedUser->getPhoto())){
+                $cacheManager->remove('images/profils/' . $connectedUser->getPhoto());
+                unlink($photoLocation . $connectedUser->getPhoto());
+            }
+
+            $em = $doctrine->getManager();
+            $connectedUser->setPhoto($newFileName);
+            $em->flush();
+
+            $photo->move(
+                $photoLocation,
+                $newFileName,
+            );
+
+            $this->addFlash('success', 'Photo de profil modifiée avec succès !');
+            return $this->redirectToRoute('app_profil');
+
+        }
+
+        return $this->render('main/edit_avatar.html.twig', [
+            'edit_photo_form' => $form->createView(),
+        ]);
+    }
 }

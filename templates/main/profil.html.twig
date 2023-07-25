@@ -25,7 +25,9 @@
                                           <div class="row">
                                               <div class="col-10 mx-auto d-flex left-bloc-profil justify-content-center align-items-center">
 
-                                                      <img class="img-thumbnail" src="#" alt="">
+
+                                                      <img class="img-thumbnail" src="{{ asset('images/profils/' ~ app.user.avatar ) }}" alt="">
+
 
                                               </div>
                                           </div>
@@ -33,7 +35,7 @@
                                           {# Lien vers la page permettant de changer de photo de profil #}
                                           <div class="row">
                                               <div class="col-12 pt-3">
-                                                  <a href="#" class="text-dark text-decoration-none">Modifier la photo de profil</a>
+                                                  <a href="{{ path('main_edit_avatar') }}" class="text-dark text-decoration-none">Modifier la photo de profil</a>
                                               </div>
                                           </div>
 
@@ -44,12 +46,11 @@
 
                                           {# Infos du compte #}
                                           <ul class="list-group col-12 col-md-8 p-0 w-100">
-                                              <li class="list-group-item bg-black text-dark">Pseudo : <span class="text-info text-light">###</span></li>
-                                              <li class="list-group-item bg-black text-dark">Age : <span class="text-info text-light">###</span></li>
-                                              <li class="list-group-item bg-black text-dark">Date d'inscription : <span class="text-info text-light">###</span></li>
+                                              <li class="list-group-item bg-black text-dark">Pseudo : <span class="text-info text-dark">{{ app.user.pseudo }}</span></li>
+                                              <li class="list-group-item bg-black text-dark">Age : <span class="text-info text-dark">{{ app.user.age }}</span></li>
                                               <li class="list-group-item bg-black text-dark">
                                                   Rôle :
-                                                  <span class="text-info text-light">{{  is_granted('ROLE_ADMIN') ? 'Administrateur' : 'Utilisateur' }}</span>
+                                                  <span class="text-info text-dark">{{  is_granted('ROLE_ADMIN') ? 'Administrateur' : 'Utilisateur' }}</span>
                                               </li>
                                           </ul>
 

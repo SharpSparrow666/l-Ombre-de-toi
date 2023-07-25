@@ -69,7 +69,7 @@
 
     /*  CODAGE SECTION  */
 
-        .explication-section, .tpb-section, .caracteristiques-section, .sans-nom-section, .ressources-section{
+        .explication-section, .tpb-section, .caracteristiques-section, .sans-nom-section, .ressources-section, .mentions-section, .cgu-section{
             background-color: #157251;
             padding: 10px;
             margin-top: 50px;
@@ -79,7 +79,7 @@
             border-radius: 5px;
             width: 1200px;
             max-width: 100%;
-            max-height: 530px;
+            max-height: 600px;
             color: #DBDBDB;
             font-family: "Ysabeau Office";
             box-shadow: 3px 3px 3px darkslategray;
@@ -95,10 +95,10 @@
         }
 
         .what-is-it{
-            padding: 50px;
-            margin-left: 230px;
+            padding: 30px;
+            margin-left: 100px;
             text-align: justify;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
             max-height: 350px;
             overflow: hidden;
@@ -125,7 +125,7 @@
             padding: 50px;
             margin-right: 230px;
             text-align: justify;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
             max-height: 350px;
             overflow: hidden;
@@ -152,6 +152,66 @@
             box-shadow: 5px 5px 5px black;
         }
 
+/**/
+/* CSS DE LA PAGE MENTIONS & CGU */
+/**/
+
+
+    /*  PARAGRAPHE MENTIONS  */
+
+    h2.section-mentions{
+        font-family: "Dancing Script";
+        padding: 25px;
+        margin-left: 830px;
+        font-size: 55px;
+    }
+
+    .mentions{
+        padding: 50px;
+        margin-right: 230px;
+        text-align: justify;
+        font-size: 18px;
+        font-weight: bold;
+        max-height: 350px;
+        overflow: hidden;
+    }
+
+    .fleur-mentions{
+        max-width: 15%;
+        max-height: 15%;
+        position: absolute;
+        margin-top: 163px;
+        margin-left: 990px;
+    }
+
+
+    /*  PARAGRAPHE CGU  */
+
+    h2.section-cgu{
+        font-family: "Dancing Script";
+        padding: 25px;
+        margin-left: 830px;
+        font-size: 55px;
+    }
+
+    .cgu{
+        padding: 50px;
+        margin-right: 230px;
+        text-align: justify;
+        font-size: 18px;
+        font-weight: bold;
+        max-height: 350px;
+        overflow: hidden;
+    }
+
+    .fleur-cgu{
+        max-width: 15%;
+        max-height: 15%;
+        position: absolute;
+        margin-top: 113px;
+        margin-left: 990px;
+    }
+
 
 /**/
 /* CSS DE LA PAGE TPB */
@@ -172,6 +232,11 @@
         margin-bottom: 20px;
     }
 
+    ul.affections{
+        text-align: justify;
+        font-size: 20px;
+    }
+
     .caracteristiques{
         padding: 50px;
         margin-left: 150px;
@@ -186,7 +251,7 @@
         max-width: 20%;
         max-height: 20%;
         position: absolute;
-        margin-top: 202px;
+        margin-top: -50px;
         margin-left: 5px;
     }
 
@@ -219,7 +284,7 @@
         max-width: 20%;
         max-height: 20%;
         position: absolute;
-        margin-top: 206px;
+        margin-top: 100px;
         margin-left: 5px;
     }
 
@@ -258,16 +323,15 @@
 
     .playlist-section{
     background-color: #DBDBDB;
-    padding: 10px;
+    padding: 50px;
     margin-top: 50px;
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 5px;
-    border: dotted black;
     width: 1200px;
     max-width: 100%;
-    max-height: 530px;
+    max-height: 630px;
     max-width: 750px;
     color: #DBDBDB;
     font-family: "Dancing Script";
@@ -276,14 +340,15 @@
 
     h2.section-playlist{
         color: black;
+        font-size: 45px;
     }
 
     .fleur-ressources{
         max-width: 20%;
         max-height: 20%;
         position: absolute;
-        margin-top: -75px;
-        margin-left: 620px;
+        margin-top: -135px;
+        margin-left: 580px;
     }
 
     /*  LIENS ET ARTICLES  */
@@ -436,7 +501,7 @@
         text-align: center;
         font-size: 52px;
         margin-top: 20px;
-        padding: 25px;
+        padding-top: 25px;
     }
 
     .footer h3 {
@@ -458,6 +523,38 @@
         margin: auto;
         display: block;
         display: flex;
+    }
+
+    .mentions-link{
+        font-family: "Ysabeau Office";
+        font-size: 18px;
+        text-decoration: none;
+        color: white;
+        text-align: center;
+        position: absolute;
+        margin-top: 120px;
+        margin-left: 960px;
+    }
+
+
+/**/
+/* CSS DES PAGES D'ERREURS */
+/**/
+
+    h1.error{
+        padding: 50px;
+        margin: auto;
+        margin-left: 300px;
+        font-family: "Dancing Script";
+        font-size: 75px;
+        text-shadow: 1px 1px 1px darkslategray;
+    }
+
+    p.error-message{
+        font-family: "Ysabeau Office";
+        font-size: 25px;
+        padding: 30px;
+        text-align: center;
     }
 
 </style>

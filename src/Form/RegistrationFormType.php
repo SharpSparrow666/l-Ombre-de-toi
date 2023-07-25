@@ -12,8 +12,10 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Mime\Part\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -67,12 +69,25 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('avatar', FileType::class, [
-                'label' => 'Avatar',
+                'label' => 'Sélectionnez une photo',
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Merci de choisir un avatar',
+                    new Image([
+
+                        // jpg et png uniquement
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                        ],
+
+                        // Message d'erreur en cas de fichier au type non autorisé
+                        'mimeTypesMessage' => 'L\'image doit être de type jpg ou png',
+
                     ]),
-                ],
+                    new NotBlank([
+                        // Message en cas de formulaire envoyé sans fichier
+                        'message' => 'Vous devez sélectionner un fichier',
+                    ])
+                ]
             ])
 
             ->add('plainPassword', RepeatedType::class, [

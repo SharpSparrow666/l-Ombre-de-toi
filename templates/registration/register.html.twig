@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}S'enregistrer{% endblock %}
 
 {% block body %}
     <h1 class="register-title">Créer un compte</h1>
@@ -28,10 +28,15 @@
         {{ form_row(registrationForm.plainPassword, {
             label: 'Mot de passe :'
         }) }}
+
+                <input type="hidden" name="honeypot">
+
         <button type="submit" class="btn btn-success w-100 p-2 mt-4 submit">Créer un compte</button>
     {{ form_end(registrationForm) }}
                 </div>
         </div>
     </div>
 </section>
+{% endblock %}
+{% block stylesheets %}
 {% endblock %}

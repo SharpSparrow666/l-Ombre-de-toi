@@ -11,8 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Ysabeau+Office:ital,wght@0,1;0,100;0,200;0,300;1,1;1,100;1,200&family=Ysabeau+SC:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="public/{{ asset('styles/styles.css') }}">
-    <link rel="stylesheet" href="public/{{ asset('styles/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{ asset('scripts/owl.carousel.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
     {#  CSS additionnel  #}
     {% include 'partials/css_stronger_than_bootstrap.html.twig' %}
 </head>
@@ -20,6 +24,9 @@
 {# Inclusion de la bannière et du menu principal du site #}
 {% include 'partials/header_and_main_navbar.html.twig' %}
 <body>
+
+{#  SECTION AIDE  #}
+
     <section>
         <div class="container-fluid">
             <div class="photo-ressources"></div>
@@ -33,12 +40,15 @@
 
                         <h2 class="section-ressources">_ De l'aide, du soutien, des solutions ?</h2>
 
-                                <p class="what-is-it"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deleniti dolore doloremque esse expedita itaque modi molestias nam non nostrum obcaecati, placeat quasi, reprehenderit tempora temporibus? Aspernatur deleniti quam quia?</span><span>Ad aut autem dolore doloremque, ex ipsum maxime modi nesciunt nihil, nisi nobis quam quidem sed ullam unde ut, voluptate voluptates. Aliquid cumque eos error excepturi exercitationem nostrum tenetur, voluptate.</span><span>Excepturi laborum minima neque non voluptatum? Ad aperiam autem corporis culpa dolor exercitationem fugit id inventore molestias placeat, quae quam quas unde velit voluptate voluptates voluptatibus. Alias quos saepe tenetur.</span></p>
+                                <p class="what-is-it"><span>Comme pour tous les maux psychiatriques, un suivi régulier est préconisé. Des traitements médicamenteux existent pour faciliter la vie quotidienne. Psychiatre et suivi psychologique sont courants, et peuvent être complétés par un suivi en addictologie. Connaître sa pathologie permet d'identifer les symptômes, et de mieux les gérer. Des pratiques comme l'hypnose, l'EMDR peuvent être conseillées. Certains professionnels sont spécialisés dans la maladie. Des groupes de paroles existent également.</span></p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+{#  CAROUSSEL  #}
+
     <section>
         <div class="row">
             <div class="ms-auto mb-2 mb-lg-0">
@@ -51,32 +61,47 @@
                             <img class="fleur-ressources" src="{{ asset('../../images/fleur-ressources.png') }}" alt="">
                         </div>
 
+                        <div class="owl-carousel owl-theme">
+                            <div class="item-video" data-merge="3"><a class="owl-video" href="https://www.youtube.com/watch?v=mLxZKNEj6BY"></a></div>
+                            <div class="item-video" data-merge="1"><a class="owl-video" href="https://www.youtube.com/watch?v=vL4j9UJ2msk&t=1s&ab_channel=20MinutesFrance"></a></div>
+                            <div class="item-video" data-merge="2"><a class="owl-video" href="https://www.youtube.com/watch?v=G6pW_7Dy4LY&t=168s&ab_channel=Psycho%27tips"></a></div>
+                            <div class="item-video" data-merge="1"><a class="owl-video" href="https://www.youtube.com/watch?v=ICSWs7PlN4g&t=176s&ab_channel=PsykoCouac"></a></div>
+                            <div class="item-video" data-merge="2"><a class="owl-video" href="https://www.youtube.com/watch?v=INN9LDYPzSE&ab_channel=%C3%87acommenceaujourd%27hui"></a></div>
+                            <div class="item-video" data-merge="3"><a class="owl-video" href="https://www.youtube.com/watch?v=GKX0EpuKDZY&t=435s&ab_channel=AssociationTDAH-ImPulse"></a></div>
+                            <div class="item-video" data-merge="1"><a class="owl-video" href="https://www.youtube.com/watch?v=ajRhhAtRVjE&ab_channel=L%C3%A9onieK"></a></div>
+                            <div class="item-video" data-merge="2"><a class="owl-video" href="https://www.youtube.com/watch?v=e9WHzStvHEQ&ab_channel=AESP"></a></div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
+
+{#  RESSOURCES  #}
+
     <section>
         <div class="row">
             <div class="ms-auto mb-2 mb-lg-0">
                 <div class="container-fluid">
                         <p>
                             <ul class="links-and-articles">
-                            <li>Https://</li>
-                            <li>Https://</li>
-                            <li>Https://</li>
-                            <li>Https://</li>
-                            <li>Https://</li>
+                            <li><a href="https://www.msdmanuals.com/fr/professional/troubles-psychiatriques/%EF%BB%BFtroubles-de-la-personnalit%C3%A9/trouble-de-la-personnalit%C3%A9-limite-borderline-ou-%C3%A9motionnellement-labile">Définition du trouble borderline</a></li>
+                            <li><a href="https://www.chu-toulouse.fr/IMG/pdf/doc_trouble_de_la_personnalite_borderline-pp.pdf">Le trouble selon l'hôpital de Toulouse</a></li>
+                            <li><a href="https://www.maisonperchee.org/">La Maison perchée</a></li>
+                            <li><a href="https://borderline-espoir.fr/">Association borderline espoir</a></li>
+                            <li><a href="http://www.psychomedia.qc.ca/psychologie/2022-06-11/trouble-de-la-personnalite-limite-borderline-types-millon">Différents types de borderline</a></li>
                         </ul>
                         </p>
 
                         <p>
                         <ul class="links-and-articles">
-                            <li>Article 1</li>
-                            <li>Article 2</li>
-                            <li>Article 3</li>
-                            <li>Article 4</li>
-                            <li>Article 5</li>
+                            <li><a href="https://congresfrancaispsychiatrie.org/neurobiologie-des-troubles-de-personnalite-borderline-et-strategies-therapeutiques-quoi-de-neuf/">Stratégies thérapeutiques</a></li>
+                            <li><a href="https://aapel.org/">Association d'aide aux personnes TPB</a></li>
+                            <li><a href="https://tpl-familles.org/">Site destinée aux aidants familiaux</a></li>
+                            <li><a href="https://www.larevuedupraticien.fr/article/vivre-avec-un-trouble-de-la-personnalite-borderline">Témoignagne de Cécile, 35 ans.</a></li>
+                            <li><a href="https://www.carenity.com/infos-maladie/magazine/temoignages/trouble-de-la-personnalite-borderline-derriere-mon-sourire-se-cache-une-terrible-souffrance-1402">Témoignage de Damien, 38 ans.</a></li>
                         </ul>
                         </p>
                 </div>
@@ -89,8 +114,20 @@
     {# Inclusion du footer du site #}
     {% include 'partials/footer.html.twig' %}
 </footer>
-<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('scripts/slick.min.js') }}"></script>
-{% block js %}{% endblock %}
+
+{% block js %}<script>
+    $('.owl-carousel').owlCarousel({
+        items:1,
+        merge:true,
+        loop:true,
+        nav: true,
+        margin:10,
+        video:true,
+        lazyLoad:false,
+        center:true,
+        videoWidth: 600, // Default false; Type: Boolean/Number
+        videoHeight: 450, // Default false; Type: Boolean/Number
+    })
+</script>{% endblock %}
 </body>
 </html>
