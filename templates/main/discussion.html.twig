@@ -7,11 +7,23 @@
 {#Remplissage du body#}
 {% block body %}
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center my-5 subjects-title">Sujets de discussion</h1>
+        </div>
+    </div>
+</div>
 
+{#  BOUTON POUR CRÉER SUJET DE DISCUSSION  #}
 
-                            <div class="row">
-                                <div class="col-12 text-center alert alert-warning">Aucune publication à afficher.</div>
-                            </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <a class="btn-success p-3 add-subject" href="{{ path('discussion_new_publication') }}"><i class="fa-solid fa-plus" style="color: #eaeaeb;"></i>Créer un nouveau sujet</a>
+            </div>
+        </div>
+    </div>
 
 
 {% endblock %}

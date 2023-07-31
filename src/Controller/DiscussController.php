@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[Route('/l_ombre_de_toi/discussion', name: 'discussion_')]
+#[Route('/l_ombre_de_toi', name: 'discussion_')]
 class DiscussController extends AbstractController
 {
     #[Route('/nouvelle-publication/', name: 'new_publication')]
@@ -53,4 +53,15 @@ class DiscussController extends AbstractController
             'new_publication_form' => $form->createView(),
         ]);
     }
+
+    // Contrôleur de la page qui liste les articles
+
+    #[Route('/discussion', name: 'discussion_')]
+    public function publicationList(): Response
+    {
+
+        return $this->render('main/discussion.html.twig');
+
+    }
+
 }
