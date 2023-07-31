@@ -42,14 +42,6 @@ class MainController extends AbstractController
 
     }
 
-    #[Route('/l_ombre_de_toi/discussion', name: 'app_discussion')]
-    public function discussion(): Response
-    {
-
-        return $this->render('main/discussion.html.twig');
-
-    }
-
     #[Route('/l_ombre_de_toi/profil', name: 'app_profil')]
     public function profil(): Response
     {
@@ -68,7 +60,7 @@ class MainController extends AbstractController
 
     #[Route('/changer-photo-de-profil/', name: 'main_edit_avatar')]
     #[IsGranted('ROLE_USER')]
-    public function editPhoto(\Symfony\Component\HttpFoundation\Request $request, ManagerRegistry $doctrine, CacheManager $cacheManager): Response
+    public function editPhoto(Request $request, ManagerRegistry $doctrine, CacheManager $cacheManager): Response
     {
 
         $form = $this->createForm(EditPhotoFormType::class);

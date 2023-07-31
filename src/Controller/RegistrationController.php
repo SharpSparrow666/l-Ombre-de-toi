@@ -24,14 +24,14 @@ class RegistrationController extends AbstractController
 
             if ($form->isSubmitted() && $form->isValid()) {
 
-                $photo = $form->get('photo')->getData();
+                $avatar = $form->get('avatar')->getData();
 
                 // Création d'un nouveau nom aléatoire pour la photo avec son extension (récupérée via la méthode guessExtension() )
-                $newFileName = md5(time() . rand() . uniqid() ) . '.' . $photo->guessExtension();
+                $newFileName = md5(time() . rand() . uniqid() ) . '.' . $avatar->guessExtension();
 
                 // Déplacement de la photo dans le dossier que l'on avait paramétré dans le fichier services.yaml, avec le nouveau nom qu'on lui a généré
-                $photo->move(
-                    $this->getParameter('app.photos.directory'),     // Emplacement de sauvegarde du fichier
+                $avatar->move(
+                    $this->getParameter('app.avatars.directory'),     // Emplacement de sauvegarde du fichier
                     $newFileName    // Nouveau nom du fichier
                 );
 

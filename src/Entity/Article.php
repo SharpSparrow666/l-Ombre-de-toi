@@ -14,33 +14,22 @@ class Article
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 40)]
-    private ?string $author = null;
-
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 150)]
     private ?string $title = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $publication_date = null;
-
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $publicationDate = null;
+
+    #[ORM\ManyToOne(inversedBy: 'articles')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $author = null;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getAuthor(): ?string
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(string $author): static
-    {
-        $this->author = $author;
-
-        return $this;
     }
 
     public function getTitle(): ?string
@@ -55,18 +44,6 @@ class Article
         return $this;
     }
 
-    public function getPublicationDate(): ?\DateTimeInterface
-    {
-        return $this->publication_date;
-    }
-
-    public function setPublicationDate(\DateTimeInterface $publication_date): static
-    {
-        $this->publication_date = $publication_date;
-
-        return $this;
-    }
-
     public function getContent(): ?string
     {
         return $this->content;
@@ -75,6 +52,30 @@ class Article
     public function setContent(string $content): static
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getPublicationDate(): ?\DateTimeInterface
+    {
+        return $this->publicationDate;
+    }
+
+    public function setPublicationDate(\DateTimeInterface $publicationDate): static
+    {
+        $this->publicationDate = $publicationDate;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): static
+    {
+        $this->author = $author;
 
         return $this;
     }
