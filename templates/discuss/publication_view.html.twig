@@ -1,0 +1,44 @@
+{#utilisation squelette#}
+{% extends "base.html.twig" %}
+
+{#Définition titre#}
+{% block title %}Sujet de discussion{% endblock %}
+
+{#Remplissage du body#}
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+
+                <h1 class="text-center my-5 text-dark article-title">{{ article.title }}</h1>
+
+            </div>
+        </div>
+
+        {# Lien pour retourner à la liste des articles #}
+        <div class="row mb-3">
+            <div class="text-center col-12">
+                <a class="text-decoration-none text-dark return-list" href="{{ path('discussion_discussion_') }}">Retour liste des articles</a>
+            </div>
+        </div>
+
+        {# Affichage de l'article #}
+        <div class="row">
+            <div class="col-12 col-md-8 mx-auto"
+            <div class="card my-2 bg-black">
+                <div class="card-body p-8 text-white bg-success p-3 rounded article-content">
+
+                    {# Date et auteur de l'article #}
+                    <footer class="blockquote-footer mt-0 mb-4 text-white">Publié le <strong class="text-white">{{ article.publicationDate|date('d/m/Y à H\\hi')}}</strong> par <strong class="text-white">{{ article.author.pseudo   }}</strong></footer>
+
+                    {# Affichage du contenu de l'article #}
+                    <div class="mb-2">
+                        {{ article.content }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

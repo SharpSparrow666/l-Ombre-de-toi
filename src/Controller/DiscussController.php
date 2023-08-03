@@ -57,10 +57,29 @@ class DiscussController extends AbstractController
     // Contrôleur de la page qui liste les articles
 
     #[Route('/discussion', name: 'discussion_')]
-    public function publicationList(): Response
+    public function publicationList(\Doctrine\Persistence\ManagerRegistry $doctrine): Response
     {
 
-        return $this->render('main/discussion.html.twig');
+        // Récupération du repository des articles
+        $articleRepo = $doctrine->getRepository(Article::class);
+
+        $articles = $articleRepo->findAll();
+
+
+        // Envoi des articles à la vue
+        return $this->render('main/discussion.html.twig', [
+            'articles' => $articles,
+        ]);
+
+    }
+
+    #[Route('/publication/{id}', name: 'publication_view')]
+    public function publicationView(Article $article): Response
+    {
+
+        return $this->render('discuss/publication_view.html.twig', [
+            'article' => $article,
+        ]);
 
     }
 
