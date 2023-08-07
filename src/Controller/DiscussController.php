@@ -45,7 +45,9 @@ class DiscussController extends AbstractController
             $this->addFlash('success', 'Sujet posté avec succès !');
 
             //TODO: penser à rediriger sur la page qui montre le nouvel article
-            return $this->redirectToRoute('app_accueil');
+            return $this->redirectToRoute('discussion_publication_view', [
+                'id' => $newArticle->getId(),
+            ]);
 
         }
 

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\EditAvatarFormType;
 use App\Form\LoginFormType;
 use App\Form\RegistrationFormType;
 use Doctrine\Persistence\ManagerRegistry;
@@ -43,6 +44,7 @@ class MainController extends AbstractController
     }
 
     #[Route('/l_ombre_de_toi/profil', name: 'app_profil')]
+    #[IsGranted('ROLE_USER')]
     public function profil(): Response
     {
 
@@ -60,34 +62,34 @@ class MainController extends AbstractController
 
     #[Route('/changer-photo-de-profil/', name: 'main_edit_avatar')]
     #[IsGranted('ROLE_USER')]
-    public function editPhoto(Request $request, ManagerRegistry $doctrine, CacheManager $cacheManager): Response
+    public function editAvatar(Request $request, ManagerRegistry $doctrine, CacheManager $cacheManager): Response
     {
 
-        $form = $this->createForm(EditPhotoFormType::class);
+        $form = $this->createForm(EditAvatarFormType::class);
 
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
 
-            $photo = $form->get('avatar')->getData();
+            $avatar = $form->get('avatar')->getData();
 
             $connectedUser = $this->getUser();
 
             $photoLocation = $this->getParameter('app.user.avatar.directory');
 
-            $newFileName = 'user' . $connectedUser->getId() . '.' . $photo->guessExtension();
+            $newFileName = 'user' . $connectedUser->getId() . '.' . $avatar->guessExtension();
 
-            if($connectedUser->getPhoto() != null && file_exists($photoLocation . $connectedUser->getPhoto())){
-                $cacheManager->remove('images/profils/' . $connectedUser->getPhoto());
-                unlink($photoLocation . $connectedUser->getPhoto());
+            if($connectedUser->getAvatar() != null && file_exists($photoLocation . $connectedUser->getAvatar())){
+                $cacheManager->remove('images/profils/' . $connectedUser->getAvatar());
+                unlink($photoLocation . $connectedUser->getAvatar());
             }
 
             $em = $doctrine->getManager();
-            $connectedUser->setPhoto($newFileName);
+            $connectedUser->setAvatar($newFileName);
             $em->flush();
 
-            $photo->move(
-                $photoLocation,
+            $avatar->move(
+                $avatarLocation,
                 $newFileName,
             );
 
@@ -97,7 +99,7 @@ class MainController extends AbstractController
         }
 
         return $this->render('main/edit_avatar.html.twig', [
-            'edit_photo_form' => $form->createView(),
+            'edit_avatar_form' => $form->createView(),
         ]);
     }
 }
