@@ -85,4 +85,47 @@ class DiscussController extends AbstractController
 
     }
 
+    #[Route('/publication/suppression/{id}/', name: 'publication_delete', priority: 10)]
+    #[IsGranted('ROLE_ADMIN')]
+    public function publicationDelete(Article $article, \Doctrine\Persistence\ManagerRegistry $doctrine, \Symfony\Component\HttpFoundation\Request $request): Response
+    {
+
+            $em = $doctrine->getManager();
+            $em->remove($article);
+            $em->flush();
+
+            $this->addFlash('success', 'La publication a été supprimée avec succès !');
+
+
+        return $this->redirectToRoute('discussion_discussion_');
+
+    }
+
+    // Contrôleur de la page admin servant à modifier un artciel existant via son id passé dans l'URL
+
+    #[Route('/publication/modifier/{id}/', name: 'publication_edit', priority: 10)]
+    #[IsGranted('ROLE_ADMIN')]
+    public function publicationEdit(Article $article, \Symfony\Component\HttpFoundation\Request $request, \Doctrine\Persistence\ManagerRegistry $doctrine): Response
+    {
+        $form = $this->createForm(NewPublicationFormType::class, $article);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+
+            $em = $doctrine->getManager();
+            $em->flush();
+
+            $this->addFlash('success','Publication modifiée avec succès !');
+
+            return $this->redirectToRoute('discussion_publication_view', [
+                'id' => $article->getId(),
+            ]);
+
+        }
+
+        return $this->render('discuss/publication_edit.html.twig',[
+            'edit_form' => $form->createView(),
+        ]);
+    }
+
 }
