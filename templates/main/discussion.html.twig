@@ -16,7 +16,7 @@
 </div>
 
 {#  BOUTON POUR CRÉER SUJET DE DISCUSSION  #}
-
+    {% if is_granted("ROLE_USER") %}
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -24,6 +24,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
 
     {# Affichage des articles #}
     <div class="row">
@@ -90,7 +91,7 @@
     </div>
 
     {#  BOUTON POUR CRÉER SUJET DE DISCUSSION  #}
-
+    {% if is_granted("ROLE_USER") %}
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -98,6 +99,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
 
 
 {% endblock %}
